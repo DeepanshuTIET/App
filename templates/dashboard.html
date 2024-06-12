@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="text-2xl font-bold mb-4">Welcome to the Dashboard!</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-xl font-semibold mb-2">Banknifty LTP</h3>
+            <p class="text-gray-700 text-4xl">{{ banknifty_ltp }}</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-xl font-semibold mb-2">Nifty50 LTP</h3>
+            <p class="text-gray-700 text-4xl">{{ nifty50_ltp }}</p>
+        </div>
+        <div>
+            <div class="bg-white p-4 rounded shadow">
+                <h3 class ="text-xl fon-semibold mb-2">Sensex LTP</h3>
+                <p class="text-gray-700 text-4xl">{{sensex_ltp}}</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Refresh the page every 1 second
+    //    setTimeout(function() {
+    //        location.reload();
+    //    }, 1000);
+    // </script>
+{% endblock %}

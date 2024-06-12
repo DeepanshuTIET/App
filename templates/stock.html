@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded shadow-md w-96">
+            <h2 class="text-2xl mb-4 text-center">Stock Prices</h2>
+            <div class="mb-4">
+                <h3 class="text-xl text-center">Reliance LTP</h3>
+                <p class="text-center text-4xl">{{ reliance_ltp }}</p>
+            </div>
+            <div>
+                <h3 class="text-xl text-center">Nifty50 LTP</h3>
+                <p class="text-center text-4xl">{{ nifty50_ltp }}</p>
+            </div>
+            <a href="{{ url_for('home') }}" class="block w-full bg-blue-500 text-white py-2 rounded mt-4 text-center">Back to Dashboard</a>
+        </div>
+    </div>
+{% endblock %}
