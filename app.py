@@ -64,7 +64,7 @@ def register():
         
         # Send a confirmation email upon successful registration
         msg = Message('Welcome to Flask App', recipients=[user.email])
-        msg.body = 'Thank you for registering. We are excited to have you on board!'
+        msg.html = render_template('welcome_email.html')
         mail.send(msg)
         
         return redirect(url_for('login'))
@@ -84,7 +84,8 @@ def login():
             return redirect(url_for('dashboard'))
         else:
             flash('Login unsuccessful. Please check email and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+    return render_template('login.html', title='Login', form=form, show_header_footer=False)
+
 
 @app.route("/dashboard")
 @login_required
@@ -97,7 +98,8 @@ def dashboard():
     nifty50_ltp = nifty50_ticker.history(period="1d")['Close'].iloc[-1]
     sensex_ltp = sensex_ticker.history(period="1d")['Close'].iloc[-1]
 
-    return render_template('dashboard.html', title='Dashboard', banknifty_ltp=round(banknifty_ltp, 2), nifty50_ltp=round(nifty50_ltp, 2), sensex_ltp=round(sensex_ltp, 2))
+    return render_template('dashboard.html', title='Dashboard', banknifty_ltp=round(banknifty_ltp, 2), nifty50_ltp=round(nifty50_ltp, 2), sensex_ltp=round(sensex_ltp, 2), show_header_footer=True)
+
 
 @app.route("/stock")
 @login_required
@@ -114,7 +116,7 @@ def stock():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return render_template('home.html')
 
 @app.route("/")
 @app.route("/home")

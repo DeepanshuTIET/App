@@ -8,6 +8,7 @@
 </head>
 <body class="bg-gray-100">
     <div class="min-h-screen flex flex-col">
+        {% if show_header_footer %}
         <!-- Header -->
         <header class="bg-blue-600 text-white p-4 shadow">
             <div class="container mx-auto flex justify-between items-center">
@@ -20,9 +21,11 @@
                 </nav>
             </div>
         </header>
+        {% endif %}
         
         <!-- Main Content Area -->
         <div class="flex flex-1">
+            {% if show_header_footer %}
             <!-- Sidebar -->
             <aside class="w-64 bg-gray-800 text-gray-100 p-4">
                 <ul>
@@ -43,6 +46,7 @@
                     </li>
                 </ul>
             </aside>
+            {% endif %}
             
             <!-- Page Content -->
             <main class="flex-1 p-6">
@@ -52,12 +56,14 @@
             </main>
         </div>
 
+        {% if show_header_footer %}
         <!-- Footer -->
         <footer class="bg-gray-800 text-gray-100 text-center p-4">
             <div class="container mx-auto">
                 <p>&copy; 2024 Your Company. All rights reserved.</p>
             </div>
         </footer>
+        {% endif %}
     </div>
 </body>
 </html>
