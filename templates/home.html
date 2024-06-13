@@ -8,14 +8,20 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet">
     <script src="https://unpkg.com/alpinejs@3.14.0/dist/cdn.min.js" defer></script>
     <style>
+        .hero {
+            background-color: #1a202c; /* Adjusted background color */
+            color: white; /* Text color */
+            padding: 4rem 0; /* Adjusted padding */
+        }
+
         .gradient-text {
             background: linear-gradient(90deg, #FF0080, #7928CA, #0070F3, #00FFFF);
-            background-size: 400%;
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text; /* Fallback for older browsers */
+            -webkit-text-fill-color: transparent; /* Make text transparent */
             animation: gradient-animation 3s ease infinite;
-            line-height: 1.2; /* Adjusted line-height */
-            padding-bottom: 0.2em; /* Added padding */
+            line-height: 1.2;
+            padding-bottom: 0.2em; /* Adjusted padding */
         }
 
         @keyframes gradient-animation {
@@ -60,18 +66,15 @@
         </div>
     </header>
 
-    <section class="hero min-h-screen bg-base-200">
+    <section class="hero">
         <div class="hero-content text-center">
             <div class="max-w-2xl">
-                <h1 class="text-5xl font-bold gradient-text mb-6 mt-12">OpenAlgo Dashboard</h1>
+                <h1 class="text-5xl font-bold gradient-text mb-6">OpenAlgo Dashboard</h1>
                 <p class="text-2xl text-base-content mb-12">The ultimate platform for technical analysis, market sentiments, data visualization, and trading strategies.</p>
                 <div class="flex flex-col items-center space-y-4">
                     <div class="flex justify-center space-x-4">
                         <a href="{{ url_for('register') }}" class="btn btn-success btn-lg">Get Started</a>
                         <a href="{{ url_for('login') }}" class="btn btn-info btn-lg">Login</a>
-                    </div>
-                    <!-- Additional spacing added here -->
-                    <div class="mt-8">
                     </div>
                     <div class="mt-8">
                         <label class="flex items-center space-x-2">
@@ -80,7 +83,6 @@
                             <span class="text-base-content">Dark</span>
                         </label>
                     </div>
-                    
                 </div>
             </div>
         </div>
